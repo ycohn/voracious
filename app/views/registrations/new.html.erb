@@ -1,0 +1,36 @@
+<div class="container">
+<div class="well bs-component">
+  <fieldset>
+    <legend>Sign Up</legend>
+     <%= form_for @user, url: registrations_path do |f| %>
+      <div>
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name %>
+      </div>
+      <div>
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name %>
+      </div>
+      <div>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+      </div>
+      <div>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </div>
+      <div>
+        <%= f.label :teacher %>
+        <%= f.check_box :teacher %>
+      </div>
+      <div>
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation %>
+      </div>
+      <%= f.submit "Sign Up!"%>
+    <% end %>
+</fieldset>
+</div>
+
+
+

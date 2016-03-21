@@ -1,0 +1,41 @@
+<div class="container">
+<div class="well bs-component">
+<form class="form-horizontal">
+  <fieldset>
+    <legend>Sign In</legend>
+    <div class="form-group">
+      <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="inputEmail" placeholder="Email">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+      <div class="col-lg-10">
+        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+      </div>
+    </div>
+  </div>
+</fieldset>
+<button type="subimt" class="btn btn-primary">Sign In!</button>
+</form>
+</div>
+</div>
+
+<div class="container">
+<div class="well bs-component">
+  <fieldset>
+    <legend>Sign Up</legend>
+     <%= form_for @user, url: sessions_path do |f| %>
+      <div>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+      </div>
+      <div>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </div>
+      <%= f.submit "Sign In!"%>
+    <% end %>
+</fieldset>
+</div>
