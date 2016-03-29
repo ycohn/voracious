@@ -10,6 +10,7 @@ gem 'sass-rails', '~> 5.0'
 # For Bootstrap
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
+gem 'jquery-ui-rails'
 # gem 'twitter-bootswatch-rails'
 # gem 'twitter-bootswatch-rails-helpers'
 # Use Uglifier as compressor for JavaScript assets
