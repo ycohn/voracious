@@ -6,7 +6,6 @@
    <fieldset>
     <legend>Sign In</legend>
      <%= form_for @user, url: sessions_path do |f| %>
-     <%binding.pry%>
       <div class="form-group">
        <%= f.label :email, class: "col-lg-2 control-label"%>
         <div class="col-lg-10">
