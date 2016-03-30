@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'comments/index'
+
+  get 'comments/new'
+
   get 'sessions/new', to: "sessions#new"
   delete 'sessions/destroy' => 'sessions#destroy'
 
@@ -9,8 +13,14 @@ Rails.application.routes.draw do
   resources :registrations, only: [:new,:create]
   resources :users
   resources :courses
-  resources :books
-  resources :logs
+  
+  resources :books do
+    resources :comments
+  end
+
+  resources :logs do
+    resources :comments 
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

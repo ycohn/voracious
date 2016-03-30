@@ -1,0 +1,24 @@
+<div class="container">
+ <div class="well bs-component">
+  <div class="form-horizontal">
+   <fieldset>
+
+   <% if params[:action] == "edit" %>
+    <legend>Edit Comment</legend>
+   <%else%>
+    <legend>Write Comment</legend>
+   <% end %>
+     <%= form_for @comment do |f| %>
+      <div class="form-group">
+       <%= f.label :content, 'Comment', class: "col-lg-2 control-label"%>
+        <div class="col-lg-10">
+         <%= f.text_field :content, class: "form-control"%>
+        </div>
+      </div>
+      <%= f.hidden_field :user_id, value: current_user.id%>
+    </fieldset>
+   </div>
+  </div>
+       <%= f.submit "Submit", class:"btn btn-primary" %>
+    <% end %>
+</div>
