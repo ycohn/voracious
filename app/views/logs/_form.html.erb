@@ -1,0 +1,67 @@
+<br>
+<br>
+<div class="container">
+ <div class="well bs-component">
+  <div class="form-horizontal">
+   <fieldset>
+   <% if params[:action] == "edit" %>
+    <legend>Edit Reading Log</legend>
+   <%else%>
+    <legend>Create a Reading Log Entry</legend>
+   <% end %>
+     <%= form_for @log do |f| %>
+      <div class="form-group">
+       <%= f.label :book_id, 'Select a Book', class: "col-lg-2 control-label"%>
+        <div class="col-sm-6">
+         <!-- <div class="row"> -->
+         <%= f.collection_select :book_id, Book.all, :id, :title, {}, {class: "form-control"} %>
+         </div>
+        <div class="col-sm-2">
+         <a href="#" class="btn btn-info form-inline" id="bookModal">Add a Book</a>
+         </div>
+        <!--  </div> -->
+        </div>
+
+      <div class="form-group">
+       <%= f.label :pages, 'Pages Read', class: "col-lg-2 control-label"%>
+        <div class="col-lg-1">
+         <%= f.text_field :pages, class: "form-control"%>
+        </div>
+      </div>
+      <div class="form-group">
+       <%= f.label :minutes, 'Minutes Read', class: "col-lg-2 control-label"%>
+        <div class="col-lg-1">
+         <%= f.text_field :minutes, class: "form-control"%>
+       </div>
+      </div>
+     <div class="form-group">
+       <%= f.label :content, 'Talk about what you read. Did you like/dislike this part of the book? What do you think will happen next?', class: "col-lg-2 control-label"%>
+        <div class="col-lg-10">
+         <%= f.text_area :content, :size => "60%x5%", class: "form-control"%>
+       </div>
+      </div>
+      <%= f.hidden_field :user_id, value: current_user.id%>
+    </fieldset>
+   </div>
+  </div>
+    <%= f.submit "Submit", class:"btn btn-primary" %>
+    <% end %>
+</div>
+
+<div class="modal" id="addBook">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <!-- <h4 class="modal-title">Add a Book</h4> -->
+      </div>
+      <div class="modal-body">
+     <!--   <div class="container col-lg-5">
+        <div class="row"> -->
+         <%= render 'books/form' %>
+        </div>
+       </div>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>

@@ -16,7 +16,7 @@ class CoursesController < ApplicationController
     @course = Course.new(course_params)
     respond_to do |format|
       if @course.save
-        binding.pry
+        # binding.pry
         format.html { redirect_to @course, notice: 'course was successfully created.' }
         format.json { render action: 'show', status: :created, location: @course }
       else
