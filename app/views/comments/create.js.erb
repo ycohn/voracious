@@ -1,0 +1,8 @@
+var html = "<li class=\"list-group-item li-comment-<%= @comment.id%>\"><span class=\"badge\"><a data-remote=\"true\" rel=\"nofollow\" data-method=\"delete\" href=\"/logs/<%= @commentable.id %>/comments/<%= @comment.id %>\"><i class=\"glyphicon glyphicon-trash\"></i></a></span><%= @comment.words %></li>";
+$('.log-comments-<%=@comment.commentable.id%>').append(html);
+$('.comments-form-<%=@comment.commentable.id%> #words').val("");
+
+
+
+
+  

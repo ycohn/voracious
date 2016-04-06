@@ -3461,6 +3461,9 @@ fieldset[disabled] .btn-link:focus {
   line-height: 1.5;
   border-radius: 3px;
 }
+.btn-sm.submit-comment {
+  margin-top: 10px;
+}
 .btn-xs,
 .btn-group-xs > .btn {
   padding: 1px 5px;
@@ -4951,6 +4954,11 @@ a.label:focus {
   top: 0;
   padding: 1px 5px;
 }
+
+.btn.btn-xs.selected {
+  margin-bottom: 10px;
+}
+
 a.badge:hover,
 a.badge:focus {
   color: #ffffff;
@@ -6881,4 +6889,7 @@ legend {
 }
 .modal .close {
   color: #333333;
+}
+a .glyphicon-trash {
+  color: white;
 }

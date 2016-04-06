@@ -1,0 +1,45 @@
+  <ul class="timeline">
+  <% if log.id.even? %>
+    <li>
+  <% else %>
+    <li class="timeline-inverted">
+  <% end %>
+      <div class="timeline-badge"><i class="glyphicon glyphicon-user"></i></div>
+      <div class="timeline-panel">
+        <div class="timeline-heading">
+          <h4 class="timeline-title"><%= log.book.title %></h4>
+          <p><small class="text-muted"><i class="glyphicon glyphicon-book"></i> <%= log.pages %> pages</small>    <small class="text-muted"><i class="fa fa-hourglass-start"></i> <%= log.minutes %> minutes</small><small class="text-muted pull-right"><i class="glyphicon glyphicon-time"></i> <%= log.created_at.strftime("%B %-d, %Y") %></small></p>
+        </div>
+        <div class="timeline-body well">
+          <p><%= log.content %></p>
+        </div>
+          <div class="timeline-body">
+          <div class="">
+           <ul class="list-group log-comments-<%=log.id%>">
+           <% log.comments.last(5).each do |comment| %>
+             <li class="list-group-item li-comment-<%=comment.id%>">
+             <%if comment.user_id == current_user.id %>
+               <span class="badge"><%= link_to("/logs/#{log.id}/comments/#{comment.id}", method: :delete, remote: true) do %>
+                  <i class="glyphicon glyphicon-trash"></i> 
+                <% end %> 
+               </span>
+             <% end %>
+               <%= comment.words %>
+             </li> 
+             <% end %>
+            </ul>
+          </div>
+          </div>
+        <span class="btn btn-primary btn-xs comment-btn" id="comment-btn-<%=log.id%>">Comment</span>
+        <div class="form-group comments-form comments-form-<%=log.id%>">
+         <%= form_tag("/logs/#{log.id}/comments", method: "post", remote: true) do %>
+          <%= text_field_tag "words", "", class: "form-control"%>
+          <%= hidden_field_tag "commentable_type", "Log"%>
+          <%= hidden_field_tag "commentable_id", "#{log.id}" %>
+          <%= hidden_field_tag "user_id", "#{current_user.id}" %>
+          <%= submit_tag "Submit", class:"btn btn-primary btn-sm submit-comment" %> 
+         <% end %>
+    </div>
+   </div>
+  </li>
+</ul>

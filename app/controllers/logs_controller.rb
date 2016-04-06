@@ -5,6 +5,7 @@ class LogsController < ApplicationController
   # GET /logs.json
   def index
     @logs = Log.all
+    @comment = Comment.new
   end
 
   # GET /logs/1
@@ -27,7 +28,7 @@ class LogsController < ApplicationController
   def create
     # binding.pry
     @log = Log.new(log_params)
-
+    @reader = Reader.first_or_create(book_id: @log.book_id, user_id: @log.user_id)
     respond_to do |format|
       if @log.save
         format.html { redirect_to @log, notice: 'Log was successfully created.' }
