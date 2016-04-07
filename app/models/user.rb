@@ -10,6 +10,16 @@ class User < ActiveRecord::Base
     @full_name = "#{self.first_name} #{self.last_name}"
   end
 
+  def all_students
+    my_students = []
+    self.courses.each do |course|
+      course.students.each do |student|
+        binding.pry
+        my_students << student
+      end
+    end
+    my_students
+  end
 
 end
 

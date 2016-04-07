@@ -1,18 +1,30 @@
-<div class="container panel">
-  <h2>Welcome to Voracious</h2>
-  <h4>A social app for reading</h4>
-  <div class="panel panel-primary">
-    <div class="panel-heading">Important Info</div>
-    <div class="panel-body">
-      <p>
-        The time is now: <%= Time.now %>
-      </p>
-      <p>
-      <% if logged_in? %>
-        <%= current_user.first_name %>
-      <% end %>
-      </p>
+<% if !current_user %>
+  <style> .navbar {display: none;}></style>
+<% end %>
+<div class="back-image">
+  <%= image_tag 'books-4.jpg', class: 'full-background' %>
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <br>
+                <h1>Voracious</h1>
+                <hr>
+                <h3>A social app for reading</h3>
+                <% if !current_user %>
+                <span class="btn btn-primary btn-xl page-scroll home-btn-signup">Sign Up</span>
+                <span class="btn btn-primary btn-xl page-scroll home-btn-signin">Sign In</span>
+                <br>
+                <br>
+                <% end %>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+      <div class="homepage-signup">
+       <%= render 'registrations/form' %>
+      </div>
+      <div class="homepage-signin">
+       <%= render 'sessions/form' %>
+      </div>
     </div>
-  </div>
-    
 </div>

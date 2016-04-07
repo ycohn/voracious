@@ -1,6 +1,12 @@
 class RegistrationsController < ApplicationController
+  skip_before_filter :login_required
+
   def new
     @user = User.new
+     # respond_to do |format|
+     #  format.js { }
+     #  format.html { redirect_to new_registration_path }
+     # end 
   end
 
   def create

@@ -17,15 +17,3 @@ $( document ).ready(function(){
     form.hide();
   }
 });
-
-
-
-  // $('.dots').on('click', function(e) {
-  //   autoscroll(false);
-  //   if (!$(e.target).hasClass('selected')) {
-  //     selectDot($(e.target));
-  //     currentIndex = $('.dots .selected').index();
-  //     showSlider(currentIndex);
-  //     autoscroll(true);
-  //   }
-  // });
