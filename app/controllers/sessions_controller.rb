@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_filter :login_required
-  
+
   def new
     # binding.pry
     @user = User.new
@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
       # binding.pry
-      redirect_to root_path, notice: "You have been logged in!"
+      redirect_to user_path(@user)
     else
       @user = User.new
       flash.now[:error] = "Bad Username or Password"

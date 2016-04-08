@@ -16,6 +16,12 @@ class UsersController < ApplicationController
     
   end
 
+  def show
+    @user = current_user
+    @log = Log.new
+    @book = Book.new
+  end
+
   private
 
   def user_params

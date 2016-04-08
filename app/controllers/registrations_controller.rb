@@ -14,7 +14,7 @@ class RegistrationsController < ApplicationController
     # binding.pry
     if @user.save
       session[:user_id] = @user.id
-      redirect_to root_path
+      redirect_to user_path(@user)
     else
     end
   end
