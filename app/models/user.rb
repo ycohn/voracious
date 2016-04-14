@@ -47,17 +47,17 @@ end
   my_students
  end
 
+def authenticated?(attribute, token)
+ digest = send("#{attribute}_digest")
+ return false if digest.nil?
+ BCrypt::Password.new(digest).is_password?(token)
+end
+
   private
 
   def create_activation_digest
     self.activation_token  = User.new_token
     self.activation_digest = User.digest(activation_token)
-  end
-
-  def authenticated?(attribute, token)
-   digest = send("#{attribute}_digest")
-   return false if digest.nil?
-   BCrypt::Password.new(digest).is_password?(token)
   end
 
 end

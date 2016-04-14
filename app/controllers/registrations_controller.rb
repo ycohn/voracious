@@ -13,9 +13,10 @@ class RegistrationsController < ApplicationController
     @user = User.new(user_params)
     # binding.pry
     if @user.save
-      session[:user_id] = @user.id
-      redirect_to user_path(@user)
+      @user.send_activation_email
+      redirect_to root_path
     else
+      redirect_to root_path
     end
   end
 
@@ -26,7 +27,7 @@ class RegistrationsController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :username, :last_name, :email, :password, :password_confirmation, :teacher)
+    params.require(:user).permit(:first_name, :username, :last_name, :email, :password, :password_confirmation, :teacher, :activation_digest)
   end
 
 end

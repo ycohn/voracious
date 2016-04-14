@@ -10,7 +10,6 @@ class UsersController < ApplicationController
       @user.send_activation_email
       flash[:info] = "Please check your email to activate your account."
       redirect_to root_url
-      # session[:user_id] = @user.id
     else
     end
   end
