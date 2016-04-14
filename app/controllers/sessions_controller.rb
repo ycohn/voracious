@@ -9,9 +9,15 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_by(email: params[:user][:email])
     if @user && @user.authenticate(params[:user][:password])
-      session[:user_id] = @user.id
-      # binding.pry
-      redirect_to user_path(@user)
+      if @user.activated?
+        session[:user_id] = @user.id
+        # binding.pry
+        redirect_to user_path(@user)
+      else
+        message = "Account not activated. Check your email for the activation link."
+        flash[:warning] = message
+        redirect_to root_path
+      end
     else
       @user = User.new
       flash.now[:error] = "Bad Username or Password"

@@ -24,7 +24,8 @@ header .header-content .header-content-inner .btn {
   opacity: 1;
 }
 .full-background {
-  background: no-repeat center center fixed; 
+  background: no-repeat center center fixed;
+  background-size: cover; 
   z-index: -10;
   position: absolute;
   opacity: .8; 

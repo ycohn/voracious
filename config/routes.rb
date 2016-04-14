@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :registrations, only: [:new,:create]
   resources :users
   resources :courses
+  resources :account_activations, only: [:edit]
   
   resources :books do
     resources :comments
