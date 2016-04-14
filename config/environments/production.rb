@@ -79,7 +79,7 @@ Rails.application.configure do
 
   config.action_mailer.raise_delivery_errors = true
   host = 'voraciousapp.herokuapp.com'
-  config.action_mailer.default_url_options = { host: host, protocol: 'smtp' }
+  config.action_mailer.default_url_options = { host: host, protocol: 'http' }
 
   config.action_mailer.delivery_method = :smtp
   # SMTP settings for gmail
