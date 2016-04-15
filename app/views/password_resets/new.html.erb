@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="form-horizontal">
+   <fieldset>
+    <legend><strong>Forgot Password</strong><p>It's ok, it happens to all of us.</p></legend>
+     <%= form_for(:password_reset, url: password_resets_path) do |f| %>
+      <div class="form-group">
+       <%= f.label :email, class: "col-sm-2 control-label"%>
+        <div class="col-sm-10">
+         <%= f.text_field :email, id: "inputEmail", class: "form-control"%>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+       <%= f.submit "Submit", class:"btn btn-primary col-md-offset-2" %>
+    <% end %>
+</div>
+

@@ -11,7 +11,6 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:user][:password])
       if @user.activated?
         session[:user_id] = @user.id
-        # binding.pry
         redirect_to user_path(@user)
       else
         message = "Account not activated. Check your email for the activation link."
