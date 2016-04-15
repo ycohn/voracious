@@ -24,7 +24,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
-    domain: "gmail.com",
+    domain: "localhost:3000",
     authentication: "plain",
     enable_starttls_auto: true,
     user_name: ENV["SENDGRID_USERNAME"],

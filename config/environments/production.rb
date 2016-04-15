@@ -85,7 +85,7 @@ Rails.application.configure do
   ActionMailer::Base.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,
-    domain: "gmail.com",
+    domain: "voraciousapp.herokuapp.com",
     authentication: "plain",
     enable_starttls_auto: true,
     user_name: ENV["SENDGRID_USERNAME"],
