@@ -1,0 +1,30 @@
+<% if !current_user %>
+  <style> .navbar {display: none;}></style>
+<% end %>
+<div class="back-image">
+  <%= image_tag 'books-4.jpg', class: 'full-background' %>
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <br>
+                <h1>Voracious</h1>
+                <hr>
+                <h3>A social app for reading</h3>
+                <% if !current_user %>
+                <span class="btn btn-primary btn-xl page-scroll home-btn-signup">Sign Up</span>
+                <span class="btn btn-primary btn-xl page-scroll home-btn-signin">Sign In</span>
+                <br>
+                <br>
+                <% end %>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+      <div class="homepage-signup">
+       <%= render 'registrations/form' %>
+      </div>
+      <div class="homepage-signin">
+       <%= render 'sessions/form' %>
+      </div>
+    </div>
+</div>

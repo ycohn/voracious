@@ -1,0 +1,10 @@
+<h1>Voracious</h1>
+<h4>a social app for reading</h4>
+
+<p>Hi, <%= @user.first_name %>!</p>
+
+<p>
+Welcome to the Voracious! Click on the link below to activate your account:
+</p>
+
+<%= link_to "Activate", edit_account_activation_url(@user.activation_token, email: @user.email) %>
