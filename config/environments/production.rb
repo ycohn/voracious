@@ -83,9 +83,9 @@ Rails.application.configure do
   config.action_mailer.default :charset => "utf-8"
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
-    address: "smtp.gmail.com",
+    address: "smtp.sendgrid.net",
     port: 587,
-    domain: "voraciousapp.herokuapp.com",
+    domain: "heroku.com",
     authentication: "plain",
     enable_starttls_auto: true,
     user_name: ENV["SENDGRID_USERNAME"],
